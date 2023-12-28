@@ -1,0 +1,128 @@
+@import '../../styles/globals.scss';
+
+.header-banner {
+  position: absolute;
+  top: 54px;
+  left: 0;
+  width: 100%;
+  padding: 0 remify(16px);
+  background: $colorLinearDark;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  display: none;
+
+  @include respond-to(sm) {
+    padding: 0 remify(20px);
+  }
+  
+  &__content--desktop,
+  &__content--mobile,
+  &__content-code {
+    display: flex;
+    align-items: center;
+  }
+
+  &__background {
+    width: 100%;
+    max-width: remify(185px);
+    height: remify(54px);
+    margin-left: remify(-56px);
+    background-image: url('/header-banner.jpg');
+
+    @include respond-to(sm) {
+      margin-left: remify(-20px);
+    }
+
+    @include respond-to(md) {
+      margin-left: 0;
+    }
+  }
+
+  &__content {
+    margin: 0 remify(8px);
+    color: $colorLight;
+
+    @include respond-to(sm) {
+      margin: 0 remify(16px);
+    }
+
+    &-code {
+      margin: remify(16px) remify(12px);
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        background-image: url('/dot-icon.svg');
+        background-size: remify(3px) remify(4px);
+        width: remify(3px);
+        height: remify(4px);
+      }
+
+      span {
+        margin: 0 remify(12px);
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include respond-to(sm) {
+        display: flex;
+      }
+    }
+
+    &--mobile {
+      display: flex;
+      
+      @include respond-to(sm) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding: remify(10px) remify(14px);
+    border-radius: remify(30px);
+    background-color: $colorLight;
+    color: $colorDark;
+    font-weight: 500;
+    display: none;
+
+    @include respond-to(sm) {
+      display: inline-block;
+    }
+
+    &--mobile {
+      display: inline-block;
+  
+      @include respond-to(sm) {
+        display: none;
+      }
+  
+    }
+  }
+
+  &__close {
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    vertical-align: middle;
+    margin-left: remify(14px);
+  }
+
+  .hide-on-tablet {
+    display: none;
+
+    @include respond-to(md) {
+      display: inline;
+    }
+  }
+
+  &--active {
+    display: flex;
+  }
+}

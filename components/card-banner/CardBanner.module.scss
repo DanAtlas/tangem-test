@@ -1,0 +1,101 @@
+@import '../../styles/globals.scss';
+
+.card-banner {
+  position: fixed;
+  bottom: remify(20px);
+  right: 0;
+  width: 100%;
+  background-color: $colorDark;
+  color: $colorLight;
+  background-image: url('/card-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom 0 left remify(-180px);
+  opacity: 0;
+  visibility: hidden;
+  z-index: -2;
+  transform: translateY(100px);
+  transition: all 0.5s ease;
+  display: none;
+
+  @include respond-to(xs) {
+    background-position: 0%;
+  }
+
+  @include respond-to(sm) {
+    max-width: remify(600px);
+    right: remify(20px);
+    border-radius: remify(16px);
+  }
+
+  &--is-shown {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+    transform: translateY(0);
+  }
+
+  &--active {
+    display: block;
+  }
+
+  &__close {
+    position: absolute;
+    top: remify(15px);
+    right: remify(15px);
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    vertical-align: middle;
+  }
+
+  &__content {
+    padding: remify(75px) remify(15px) remify(55px);
+    text-align: center;
+    margin-left: auto;
+
+    @include respond-to(xs) {
+      max-width: remify(320px);
+    }
+  }
+
+  &__content,
+  &__title,
+  &__discounte {
+    font-weight: 500;
+  }
+
+  &__title {
+    margin: 0 0 remify(22px);
+    font-size: remify(46px);
+    letter-spacing: remify(-1.84px);
+  }
+
+  &__discount {
+    margin: 0 0 remify(16px);
+    font-size: remify(40px);
+    letter-spacing: remify(-1.6px);
+  }
+  
+  &__code {
+    margin: 0 0 remify(40px);
+    color: $colorGray;
+  }
+  
+  &__link {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 14px;
+    background-color: rgba($colorLight, 0.1);
+    color: $colorLight;
+  }
+
+  .hide-on-mobile {
+    display: none;
+
+    @include respond-to(xs) {
+      display: inline;
+    }
+  }
+}
