@@ -76,6 +76,9 @@
     margin: 0 0 remify(16px);
     font-size: remify(40px);
     letter-spacing: remify(-1.6px);
+    background: $colorLinearYellowBg;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   &__code {
